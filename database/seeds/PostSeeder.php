@@ -16,10 +16,10 @@ class PostSeeder extends Seeder
     {
         $categories = Category::all('id')->all();
 
-        for ($i=0; $i < 100; $i++) {
+        for ($i=0; $i < 1000; $i++) {
             $title = $faker->words(rand(3, 7), true);
             Post::create([
-                'category_id'   => $faker->randomElement($categories)->id,
+                'category_id'   => $faker->randomElement($categories),
                 'slug'          => Post::getSlug($title),
                 'title'         => $title,
                 'image'         => 'https://picsum.photos/id/'. rand(0, 1000) .'/500/400',
