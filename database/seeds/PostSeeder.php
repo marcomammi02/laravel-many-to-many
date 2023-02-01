@@ -14,12 +14,12 @@ class PostSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $categories = Category::all('id')->all();
+        $categories = Category::all()->all();
 
         for ($i=0; $i < 1000; $i++) {
             $title = $faker->words(rand(3, 7), true);
             Post::create([
-                'category_id'   => $faker->randomElement($categories),
+                'category_id'   => $faker->randomElement($categories)->id,
                 'slug'          => Post::getSlug($title),
                 'title'         => $title,
                 'image'         => 'https://picsum.photos/id/'. rand(0, 1000) .'/500/400',

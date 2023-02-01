@@ -21,8 +21,12 @@
                 @foreach ($posts as $post)
                     <tr>
                         <th scope="row">{{ $post->id }}</th>
-                        <td>{{ $post->title }}</td>
-                        <td>{{ $post->category->name }}</td>
+                        <td>{{ ucfirst($post->title) }}</td>
+                        @if ($post->category == null)
+                            <td>Inexistent!</td>
+                        @else
+                            <td>{{ $post->category->name }}</td>
+                        @endif
                         <td>{{ $post->excerpt }}</td>
                         <td><a href="{{ route('admin.posts.show', ['post' => $post]) }}" class="btn btn-primary">Visit</a></td>
                         <td><a href="{{ route('admin.posts.edit', ['post' => $post]) }}" class="btn btn-warning">Edit</a></td>

@@ -4,7 +4,7 @@
     <div class="container">
         @if (session('success_delete'))
             <div class="alert alert-warning" role="alert">
-                Category {{ session('success_delete')->name }} eliminated!
+                Category "{{ session('success_delete')->name }}" eliminated!
             </div>
         @endif
 
